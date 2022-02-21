@@ -141,7 +141,7 @@ func (s *stepRun) getDefaultArgs(config *Config, state multistep.StateBag) map[s
 
 	// Configure "-smp" processor hardware arguments
 	if config.CpuCount > 1 {
-		defaultArgs["-smp"] = fmt.Sprintf("cpus=%d,sockets=%d", config.CpuCount, config.CpuCount)
+		defaultArgs["-smp"] = fmt.Sprintf("%d,sockets=1,cores=%d", config.CpuCount, config.CpuCount)
 	}
 
 	// Configure "-fda" floppy disk attachment
